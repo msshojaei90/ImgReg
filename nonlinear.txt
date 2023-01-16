@@ -1,0 +1,78 @@
+// **************** Main Components **************************
+(Registration "MultiResolutionRegistration")
+(Metric "AdvancedMattesMutualInformation")
+//(Metric "KNNGraphAlphaMutualInformation")
+(ImageSampler "MultiInputRandomCoordinate")
+(Interpolator "BSplineInterpolator")
+(ResampleInterpolator "FinalBSplineInterpolator")
+(Resampler "DefaultResampler")
+(Transform "BSplineTransform")
+(Optimizer "AdaptiveStochasticGradientDescent")
+(FixedImagePyramid "FixedSmoothingImagePyramid")
+(MovingImagePyramid "MovingSmoothingImagePyramid")
+//below add by Javad
+(AutomaticTransformInitializationMethod "GeometricalCenter")
+
+// ***************** Transformation **************************
+(HowToCombineTransforms "Compose")
+//(FinalGridSpacingInPhysicalUnits 60)
+//(FinalGridSpacingInVoxels 300)
+//(GridSpacingSchedule 16 8 4 2 1)
+
+
+// ******************* Optimization **************************
+(MaximumNumberOfIterations 2000)
+(AutomaticParameterEstimation "true")
+//(MaximumStepLength 1)
+//(MaximumStepLength 0.2)
+//(ASGDParameterEstimationMethod "DisplacementDistribution")
+//(MaximumDisplacementEstimationMethod "2sigma")
+//(NoiseCompensation "true")
+
+
+// ******************** Multiresolution **********************
+(NumberOfResolutions 6)
+
+
+// ************************ Metric **************************
+//(NumberOfHistogramBins 64)
+//(ShowExactMetricValue "true")
+//(ExactMetricEveryXIterations 1999)
+(Alpha 0.99)
+(KNearestNeighbours 15)
+(ErrorBound 0.0)
+
+//Regularization Parameters "TransformBendingEnergyPenalty"  //good for non-rigid Parts
+//(Metric0Weight 1.0)
+//(Metric1Weight 20.0)
+//(Metric2Weight 1.0)
+
+//Regularization Parameters "TransformRigidityPenalty" //good for rigid Parts
+//(RigidityPenaltyWeight 4.0)
+//(LinearityConditionWeight 10.0)
+//(OrthonormalityConditionWeight 1.0)
+//(PropernessConditionWeight 100.0)
+//(UseFixedRigidityImage "true")
+//(FixedRigidityImageName "f.jpg")
+
+
+// ************************ Image Sampler *******************
+(NumberOfSpatialSamples 10000)
+(NewSamplesEveryIteration "true")
+
+// ************* Interpolation and Resampling ****************
+(BSplineInterpolationOrder 1)
+(FinalBSplineInterpolationOrder 3)
+(DefaultPixelValue 0)
+
+(WriteTransformParametersEachResolution "true")
+(WriteResultImage "true")
+
+//(WriteTransformParametersEachIteration "true")
+
+// The pixel type and format of the resulting deformed moving image
+(ResultImagePixelType "short")
+(ResultImageFormat "tif")
+(CompressResultImage "true")
+
+
