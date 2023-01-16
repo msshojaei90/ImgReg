@@ -1,5 +1,5 @@
 # ImgReg
-This Jupiter notebook performs multimodal image registration using Elastix.
+This Jupiter notebook performs multimodal image registration which use Elastix library for computation.
 <br>
 <br>
 To get started, first download Elastix [Elastix 5.0.1 Release](https://github.com/SuperElastix/elastix/releases/tag/5.0.1) and extract the archive to a folder of your choice. Then, to make Elastix accessible to your $PATH environment, take the following steps: On Windows 7 and Windows 10, navigate to the control panel, select “System”, then “Advanced system settings”. From there, click “Environmental variables” and add the Elastix folder to the variable “path”.
