@@ -12,4 +12,34 @@ You can mask out your image using ImageJ/FIJI by selecting 'Edit' > 'Selection' 
 <br>
 <br>
 To review the registration results, load the images from the output folder into ImageJ/FIJI. If needed, adjust the registration parameters by editing the text file. For more information, visit the [Elastix Model Zoo](https://elastix.lumc.nl/modelzoo/) 
+<br>
+<br>
+This approach can be applied to register both single fixed and moving images, as well as multiple fixed and moving images, such as in the IMC dataset where multiple channels are necessary for image registration. The registration cost function for a single image is defined by the first equation, while the second equation is used as the cost function for multiple channels registration.
 
+
+Single fixed and moving images
+<br>
+
+$$
+\mathcal{C}\left(\boldsymbol{T}_{\boldsymbol{\mu}} ; I_F, I_M\right)=\arg \min _{\boldsymbol{T}} \mathcal{C}\left(\boldsymbol{T} ; I_F, I_M\right)
+$$
+$$
+
+<br>
+Multiple fixed and moving images
+<br>
+
+$$
+\mathcal{C}\left(\boldsymbol{T}_{\boldsymbol{\mu}} ; I_F, I_M\right)=\arg \min _{\boldsymbol{T}} \frac{1}{\sum_{i=1}^N \omega_i} \sum_{i=1}^N \omega_i \mathcal{C}\left(\boldsymbol{T}_{\boldsymbol{\mu}} ; I_F^i, I_M^i\right)
+$$
+
+<br>
+When registering multiple images, Elastix will only export the first channel when using the WriteResultImage option. However, the full image stack can be exported through Transformix. To transform the original moving image using the Elastix registration transform parameters, which are stored as TransformParameters.0.txt, the following steps are required:
+<br>
+1. Set the path to the image registration parameters
+<br>
+2. Set the path to the original moving image
+<br>
+3. Set the pad width
+<br>
+4. Set the target image size.
