@@ -34,12 +34,9 @@ $$
 $$
 
 <br>
-When registering multiple images, Elastix will only export the first channel when using the WriteResultImage option. However, the full image stack can be exported through Transformix. To transform the original moving image using the Elastix registration transform parameters, which are stored as TransformParameters.0.txt, the following steps are required:
+When registering multiple images, Elastix only exports the first channel with the WriteResultImage option. To export the full image stack, run `<code style="color:yellow">Multiple_Channel_Reg_IMC_Elastix</code>` to get the `<code style="color:yellow">TransformParameters.0.txt</code>` file as output and use it as input for the `<code style="color:yellow">Multiple_Channel_Reg_IMC_Transformix</code>` code. `<code style="color:yellow">Multiple_Channel_Reg_IMC_Transformix</code>` will then register all channels and produce the result as a stack TIFF file.
 <br>
-1. Set the path to the image registration parameters
 <br>
-2. Set the path to the original moving image
-<br>
-3. Set the pad width
-<br>
-4. Set the target image size.
+All IMC data channels are not filled by an actual protein, some are just metal tags with no information. Channel selection is necessary. To do so, run the code `<code style="color:yelow">Channel_Selection</code>` to choose relevant channels and create new stack TIFF files. The output can then be used for multimodal image registration.
+
+
