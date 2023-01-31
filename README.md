@@ -34,9 +34,9 @@ $$
 $$
 
 <br>
-When registering multiple images, Elastix only exports the first channel with the WriteResultImage option. To export the full image stack, run `<code style="color:yellow">Multiple_Channel_Reg_IMC_Elastix</code>` to get the `<code style="color:yellow">TransformParameters.0.txt</code>` file as output and use it as input for the `<code style="color:yellow">Multiple_Channel_Reg_IMC_Transformix</code>` code. `<code style="color:yellow">Multiple_Channel_Reg_IMC_Transformix</code>` will then register all channels and produce the result as a stack TIFF file.
+When registering multiple images, Elastix only exports the first channel using the WriteResultImage option. To export the full image stack, first run <code style="color:yellow">Multiple_Channel_Elastix.py</code> and get the <code style="color:yellow">TransformParameters.0.txt</code> file as output. Then, use it as input for <code style="color:yellow">Multiple_Channel_Transformix.py</code> code. This will register all channels and produce the result as a stack TIFF file.
 <br>
 <br>
-All IMC data channels are not filled by an actual protein, some are just metal tags with no information. Channel selection is necessary. To do so, run the code `<code style="color:yelow">Channel_Selection</code>` to choose relevant channels and create new stack TIFF files. The output can then be used for multimodal image registration.
+All IMC data channels are not filled by an actual protein, some are just metal tags with no information. Channel selection is necessary. To do so, run the code `<code style="color:yelow">Channel_Selection.py</code>` to choose relevant channels and create new stack TIFF files. The output can then be used for multimodal image registration.
 
 
